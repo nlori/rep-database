@@ -820,8 +820,7 @@ def main():
     # This function exists to act as a console script entry-point.
     parser = get_option_parser()
     options, args = parser.parse_args()
-    if not args:
-        die('Error: missing required path to database file.')
+    if not args: args = [ "rep-database.db" ]
 
     password = None
     if options.prompt_password:
