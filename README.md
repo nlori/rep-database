@@ -1,6 +1,4 @@
-![](http://media.charlesleifer.com/blog/photos/sqlite-web.png)
-
-`sqlite-web` is a web-based SQLite database browser written in Python.
+Extraction scripts and a web-based SQLite database browser written in Python.
 
 Project dependencies:
 
@@ -8,34 +6,15 @@ Project dependencies:
 * [peewee](http://docs.peewee-orm.com)
 * [pygments](http://pygments.org)
 
-### Installation
-
-```sh
-$ pip install sqlite-web
-```
-
 ### Usage
 
 ```sh
 $ sqlite_web /path/to/database.db
 ```
 
-### Features
-
-![](http://media.charlesleifer.com/blog/photos/p1494359468.71.gif)
-
-* Works with your existing SQLite databases, or can be used to create new databases.
-* Add or drop:
-  * Tables
-  * Columns (yes, you can drop and rename columns!)
-  * Indexes
-* Export data as JSON or CSV.
-* Import JSON or CSV files.
-* Browse table data.
-
 ### Screenshots
 
-The index page shows some basic information about the database, including the number of tables and indexes, as well as its size on disk:
+The index page for the database browser shows some basic information about the database, including the number of tables and indexes, as well as its size on disk:
 
 ![](http://media.charlesleifer.com/blog/photos/s1415479324.32.png)
 
@@ -76,18 +55,3 @@ The following options are available:
   password, but will use the value from the environment.
 * ``-r``, ``--read-only``: open database in read-only mode.
 * ``-u``, ``--url-prefix``: URL prefix for application, e.g. "/sqlite-web".
-
-### Using docker
-
-A Dockerfile is provided with sqlite-web. To use:
-
-```console
-
-$ cd docker/  # Change dirs to the dir containing Dockerfile
-$ docker build -t coleifer/sqlite-web .
-$ docker run -it --rm \
-    -p 8080:8080 \
-    -v /path/to/your-data:/data \
-    -e SQLITE_DATABASE=db_filename.db \
-    coleifer/sqlite-web
-```
